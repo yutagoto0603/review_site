@@ -3,7 +3,6 @@ class TopController < ReviewController
   before_action :authenticate_user! ,:except => [:index]
 
   def index
-    Scraping.get_products
     @products = Product.order('id ASC').limit(20) # productテーブルから最新順に作品データを20件取り出す
   end
 
